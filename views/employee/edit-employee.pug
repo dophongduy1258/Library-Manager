@@ -1,0 +1,44 @@
+extends ../common.pug
+
+block content
+	h1 Edit employee
+	span &nbsp;
+
+	form(action="/employee/edit",method="post")
+		.form-row
+			.form-group.col-md-6
+				label(for='inputEmail4') Email
+				input#inputEmail4.form-control(type='email',name="email")
+			.form-group.col-md-6
+				label(for='inputPassword4') Password
+				input#inputPassword4.form-control(type='password',name="password")
+		.form-row
+			.form-group.col-md-5
+				label(for='name') Name
+				input#name.form-control(type='text',name="name")
+			.form-group.col-md-3
+				label(for='age') Age
+				input#age.form-control(type='text',name="age")
+			.form-group.col-md-3
+				label(for='gender') Gender
+				input#gender.form-control(type='text',name="gender")
+		.form-row
+			.form-group.col-md-6
+				label(for='phone') Phone
+				input#phone.form-control(type='text',name="phone")
+			.form-group.col-md-6
+				label(for='inputPassword4') Address
+				input#inputPassword4.form-control(type='text',name="address")
+		.form-row
+			.form-group.col-md-5
+				label(for='office') Office
+				input#office.form-control(type='text',name="office")
+			.form-group.col-md-3
+				label(for='work-time') Work-time
+				input#work-time.form-control(type='text',name="workTime")
+			.form-group.col-md-3
+				label(for='salary') Salary
+				input#salary.form-control(type='text',name="salary")
+
+
+		button.btn.btn-success Create

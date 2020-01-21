@@ -1,13 +1,45 @@
-extends ./common.pug
+extends ../common.pug
 
 block content
-	nav
-	  .nav-wrapper
-	    a.brand-logo.right(href='#') Logo
-	    ul#nav-mobile.left.hide-on-med-and-down
-	      li
-	        a(href='sass.html') Sass
-	      li
-	        a(href='badges.html') Components
-	      li
-	        a(href='collapsible.html') JavaScript
+	nav.navbar.navbar-expand-lg.navbar-light.bg-light
+		a.navbar-brand(href='#') Navbar
+		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarNav.collapse.navbar-collapse
+			ul.navbar-nav
+				li.nav-item.active
+					a.nav-link(href='/home') Home
+				li.nav-item
+					a.nav-link(href='/employee') Employee
+				li.nav-item
+					a.nav-link(href='/book') Book
+
+	.container(style="margin:200 400")
+		table.table
+			thead.thead-dark
+				tr
+					th Email
+					th name
+					th phone
+					th address
+					th age
+					th gender
+					th office
+					th work time
+					th salary
+					th
+						a.btn.btn-primary(href='/employee/create', role='button') Add
+			tbody
+				each employee in employees
+					tr
+						td= employee.email
+						td= employee.name
+						td= employee.phone
+						td= employee.address
+						td= employee.age
+						td= employee.gender
+						td= employee.office
+						td= employee.workTime
+						td= employee.salary
+						td
+							a.btn.btn-secondary(href='/employee/edit', role='button') Edit

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-var bookSchema = new mongoose.Shema({
-	name-book: String,
+var bookSchema = new mongoose.Schema({
+	nameBook: String,
 	author: String,
 	product: String,
 	translator: String,
@@ -9,9 +9,9 @@ var bookSchema = new mongoose.Shema({
 	category: String,
 	page: Number,
 	year: Number,
-	book-case: String,
+	bookCase: String,
 	floor: String,
-	price: Number,
+	price: Number
 });
 
 var Book = mongoose.model('Book',bookSchema,'books');

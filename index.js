@@ -1,27 +1,43 @@
 require('dotenv').config();
+var cookieParser = require('cookie-parser'); 
 var express = require('express');
 var app = express();
-const host = process.env.HOST;
-const port = process.env.PORT;
+var host = process.env.HOST;
+var port = process.env.PORT;
+var loginRouter = require('./routers/login.route');
+var employeeRouter = require('./routers/employee.route');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var employeeRoute = require('./routers/employee.rout');
+app.set('view engine','pug');
+app.set('views','./views');
 
+app.use(cookieParser());
 app.use(express.static('public'));
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URL);
 
+
+
+
+
 app.get('/',(req,res)=>{
 	res.render('index');
-	res.send('aiusfghaksubf');
 });
 
+app.get('/home',(req,res)=>{
+	res.render('home');
+});
+
+app.use('/login',loginRouter);
+app.use('/employee',employeeRouter);
 
 
-app.listen(port,()=>{
-	console.log('Connect server //${host} : ${port} successful :))');
+
+
+app.listen(port,host,()=>{
+	console.log(`Connect server //${host} : ${port} successful !!!`);
 });

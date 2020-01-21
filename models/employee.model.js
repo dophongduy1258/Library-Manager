@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 
-var employeeSchema = new mongoose.Shema({
+var employeeSchema = new mongoose.Schema({
 	email: String,
 	password: String,
 	name: String,
 	phone: Number,
 	address: String,
 	age: Number,
-	gender: Boolean,
+	gender: String,
 	office: String,
-	work-time: String,
+	workTime: String,
 	salary: Number
 });
 
