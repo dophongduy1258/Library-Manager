@@ -6,6 +6,7 @@ var controller = require('../controllers/employee.controller');
 router.get('',controller.mainEmployee);
 router.get('/create',controller.createEmployee);
 router.post('/create',controller.postCreateEmployee);
-router.get('/edit',controller.editEmployee);
+router.get('/edit/:id',controller.editEmployee);
+router.post('/edit/:id',controller.postEditEmployee);
 
 module.exports = router;

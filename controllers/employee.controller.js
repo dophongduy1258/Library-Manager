@@ -16,6 +16,13 @@ module.exports.postCreateEmployee = (req,res)=>{
 	res.redirect('/employee');
 }
 
-module.exports.editEmployee = (req,res)=>{
-	res.render('employee/edit-employee');
+module.exports.editEmployee = async (req,res)=>{
+	var id = req.params.id;
+	var infor = await Employee.findById({_id:id});	
+	res.render('employee/edit-employee',{infor:infor});
+}
+
+module.exports.postEditEmployee = async (req,res)=>{	
+	var updateInfor = await Employee.update(req.body);
+	res.redirect('/employee',{employees:updateInfor});
 }
