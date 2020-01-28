@@ -6,6 +6,7 @@ var host = process.env.HOST;
 var port = process.env.PORT;
 var loginRouter = require('./routers/login.route');
 var employeeRouter = require('./routers/employee.route');
+var loginMiddleware = require('./middlewares/login.middleware');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -27,14 +28,9 @@ mongoose.connect(process.env.MONGO_URL);
 app.get('/',(req,res)=>{
 	res.render('index');
 });
-
-app.get('/home',(req,res)=>{
-	res.render('home');
-});
-
 app.use('/login',loginRouter);
 app.use('/employee',employeeRouter);
-
+// ,loginMiddleware.requireLogin
 
 
 

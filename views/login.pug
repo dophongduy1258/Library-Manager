@@ -1,12 +1,16 @@
 extends ./common.pug
 
 block content
-	form(method="post",action="/login")
+	if errors
+		each error in errors
+			.alert.alert-danger= error
+
+	form(method="post")
 		.form-group
 			label(for='exampleInputEmail1') Email address
-			input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp')
+			input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp',name="email",value=values ? values.email : "")
 			small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
 		.form-group
 			label(for='exampleInputPassword1') Password
-			input#exampleInputPassword1.form-control(type='password')
-			button.btn.btn-primary(type='submit') Submit
+			input#exampleInputPassword1.form-control(type='password',name="password",value=values ? values.password : "")
+			button.btn.btn-primary Submit
