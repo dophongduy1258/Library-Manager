@@ -12,24 +12,25 @@ module.exports.postIndex = async (req,res)=>{
 	var password = req.body.password;
 	var emailMG = await Employee.find({email:email});
 	var obj = emailMG.find(s=>{
-		return s.email
+		return s;
 	});
 	// var obj = emailMG.find(e=>{return e.email});
-	if(!obj.email){
+	if(email !== obj.email){
 		res.render('login',{
 			errors: ['email or password does not exist.'],
 			values: req.body		
 		});
 		return;
 	}
-	if(!obj.password){
+	if(password !== obj.password){
 		res.render('login',{
 			errors: ['email or password does not exist.'],
 			values: req.body		
 		});
 		return;
 	}
-	res.cookie('userID',obj._id);	
-	res.redirect('/employee');
 
+	res.cookie('userID',obj._id);	
+	
+	res.redirect('/employee');
 };	

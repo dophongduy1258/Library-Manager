@@ -18,8 +18,8 @@ app.set('views','./views');
 app.use(cookieParser());
 app.use(express.static('public'));
 
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URL);
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true});
 
 
 
@@ -29,7 +29,7 @@ app.get('/',(req,res)=>{
 	res.render('index');
 });
 app.use('/login',loginRouter);
-app.use('/employee',employeeRouter);
+app.use('/employee',loginMiddleware.requireLogin,employeeRouter);
 // ,loginMiddleware.requireLogin
 
 

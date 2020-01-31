@@ -2,7 +2,6 @@ var Employee = require('../models/employee.model');
 
 
 module.exports.mainEmployee = (req,res)=>{
-	// console.log(req.cookies.userID);
 	Employee.find().then((employees)=>{
 		res.render('employee/main-employee',{employees: employees
 		});

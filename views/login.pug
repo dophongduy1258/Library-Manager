@@ -5,11 +5,11 @@ block content
 		each error in errors
 			.alert.alert-danger= error
 
-	form(method="post")
+	form(action="/login",method="post")
 		.form-group
 			label(for='exampleInputEmail1') Email address
 			input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp',name="email",value=values ? values.email : "")
-			small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+			//- small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
 		.form-group
 			label(for='exampleInputPassword1') Password
 			input#exampleInputPassword1.form-control(type='password',name="password",value=values ? values.password : "")
