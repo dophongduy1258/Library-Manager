@@ -1,5 +1,8 @@
 var Employee = require('../models/employee.model');
 
+module.exports.home = (req,res)=>{
+	res.render('home');
+}
 
 module.exports.mainEmployee = (req,res)=>{
 	Employee.find().then((employees)=>{

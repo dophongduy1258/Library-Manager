@@ -13,35 +13,39 @@ block content
 					a.nav-link(href='/employee') Employee
 				li.nav-item
 					a.nav-link(href='/book') Book
-
-	h1 Employee
+	
+	h1 Book
 
 	.container(style="margin:200 400")
 		table.table
 			thead.thead-dark
 				tr
-					th Email
-					th name
-					th phone
-					th address
-					th age
-					th gender
-					th office
-					th work time
-					th salary
+					th Name
+					th Author
+					th Product
+					th Translator
+					th Langue
+					th Category
+					th Page
+					th Year
+					th BookCase
+					th Floor
+					th Price
 					th
-						a.btn.btn-primary(href='/employee/create', role='button') Add
+						a.btn.btn-primary(href='/book/create', role='button') Add
 			tbody
-				each employee in employees
+				each book in books
 					tr
-						td= employee.email
-						td= employee.name
-						td= employee.phone
-						td= employee.address
-						td= employee.age
-						td= employee.gender
-						td= employee.office
-						td= employee.workTime
-						td= employee.salary
+						td= book.name
+						td= book.author
+						td= book.product
+						td= book.translator
+						td= book.langue
+						td= book.category
+						td= book.page
+						td= book.year
+						td= book.bookCase
+						td= book.floor
+						td= book.price
 						td
-							a.btn.btn-secondary(href='/employee/edit/'+employee._id, role='button') Edit
+							a.btn.btn-secondary(href='/book/edit/'+book._id, role='button') Edit

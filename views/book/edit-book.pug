@@ -1,0 +1,63 @@
+extends ../common.pug
+
+block content
+	h1 Edit book
+	span &nbsp;
+
+	form(action="/book/edit",method="post")
+		.form-row
+			.form-group.col-md-6
+				label(for='name') Name
+				input#name.form-control(type='text',name="name",value= inforBook.name)
+			.form-group.col-md-6
+				label(for='author') Author
+				input#author.form-control(type='text',name="author",value= inforBook.author)
+		.form-row
+			.form-group.col-md-5
+				label(for='product') Product
+				input#product.form-control(type='text',name="product",value= inforBook.product)
+			.form-group.col-md-3
+				label(for='translator') Translator
+				input#translator.form-control(type='text',name="translator",value= inforBook.translator)
+			.form-group.col-md-3
+				label(for='langue') Langues
+				.input-group.mb-3
+					.input-group-prepend
+						label.input-group-text Options
+					select#langue.custom-select
+						option(selected='') Choose...
+						//- option(value= options.langues[VN], name="langue") Viet Nam
+						//- option(value= options.langues[RS],name="langue") Rusian
+						//- option(value= options.langues[GM],name="langue") German
+		.form-row
+			.form-group.col-md-5
+				label(for='category') Category
+				.input-group.mb-3
+					.input-group-prepend
+						label.input-group-text Options
+					select#category.custom-select
+						option(selected='') Choose...
+						//- option(value= options.categorys[KD],name="category") Kinh di
+						//- option(value= options.categorys[TT],name="category") Trinh tham
+						//- option(value= options.categorys[HH],name="category") Hai huoc
+			.form-group.col-md-3
+				label(for='page') Page
+				input#page.form-control(type='number',name="page",value= inforBook.page)
+			.form-group.col-md-3
+				label(for='year') Year
+				input#year.form-control(type='number',name="year",value= inforBook.year)
+		.form-row
+			.form-group.col-md-5
+				label(for='bookCase') BookCase
+				input#bookCase.form-control(type='text',name="bookCase",value= inforBook.bookCase)
+			.form-group.col-md-3
+				label(for='floor') Floor
+				input#floor.form-control(type='number',name="floor",value= inforBook.floor)
+			.form-group.col-md-3
+				label(for='price') Price
+				//- input#price.form-control(type='number',name="price")
+				.input-group.mb-3
+					.input-group-prepend
+						span.input-group-text $
+					input#price.form-control(type='number')
+		button.btn.btn-success Create
