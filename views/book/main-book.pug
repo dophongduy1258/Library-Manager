@@ -49,3 +49,5 @@ block content
 						td= book.price
 						td
 							a.btn.btn-secondary(href='/book/edit/'+book._id, role='button') Edit
+							form(action="/book",method="post")
+								button.btn.btn-danger.mt-2(value= book._id,name="idBtn", role='button') Del

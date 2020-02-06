@@ -26,9 +26,9 @@ block content
 						label.input-group-text Options
 					select#langue.custom-select
 						option(selected='') Choose...
-						option(value= options.langues[VN], name="langue") Viet Nam
-						option(value= options.langues[RS],name="langue") Rusian
-						option(value= options.langues[GM],name="langue") German
+						option(value= options.langues.VN, name="langue") Viet Nam
+						option(value= options.langues.RS,name="langue") Rusian
+						option(value= options.langues.GM,name="langue") German
 		.form-row
 			.form-group.col-md-5
 				label(for='category') Category
@@ -37,9 +37,9 @@ block content
 						label.input-group-text Options
 					select#category.custom-select
 						option(selected='') Choose...
-						option(value= options.categorys[KD],name="category") Kinh di
-						option(value= options.categorys[TT],name="category") Trinh tham
-						option(value= options.categorys[HH],name="category") Hai huoc
+						option(value= options.categorys.KD,name="category") Kinh di
+						option(value= options.categorys.TT,name="category") Trinh tham
+						option(value= options.categorys.HH,name="category") Hai huoc
 			.form-group.col-md-3
 				label(for='page') Page
 				input#page.form-control(type='number',name="page")

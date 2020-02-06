@@ -4,7 +4,7 @@ block content
 	h1 Edit book
 	span &nbsp;
 
-	form(action="/book/edit",method="post")
+	form(action="/book/edit/:id",method="post")
 		.form-row
 			.form-group.col-md-6
 				label(for='name') Name
@@ -60,4 +60,4 @@ block content
 					.input-group-prepend
 						span.input-group-text $
 					input#price.form-control(type='number')
-		button.btn.btn-success Create
+		button.btn.btn-success Update

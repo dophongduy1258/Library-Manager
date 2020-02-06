@@ -4,11 +4,21 @@ module.exports.mainBook = async (req,res)=>{
 	var books = await Book.find();
 	res.render('book/main-book',{books:books
 	});
+	
 }
 
+module.exports.postDeleteBook = async (req,res)=>{
+	var idBtn= req.body.idBtn;
+	// console.log(req.body.idBtn);
+	// var a = await Book.findById({_id:id});
+	await Book.deleteOne({_id:idBtn});
+	var books = await Book.find();
+	res.render('book/main-book',{books:books});
+} 
+
 module.exports.createBook = (req,res)=>{
-	var langues = [{VN:'Viet Nam'},{RS:'Rusian'},{GM:'German'}];
-	var categorys = [{KD:'Kinh di'},{TT:'Trinh tham'},{HH:'Hai huoc'}];
+	var langues = {VN:'Viet Nam',RS:'Rusian',GM:'German'};
+	var categorys = {KD:'Kinh di',TT:'Trinh tham',HH:'Hai huoc'};
 	res.render('book/create-book',
 			{
 				options: {
@@ -30,5 +40,41 @@ module.exports.postCreateBook = (req,res)=>{
 module.exports.editBook = async (req,res)=>{
 	var id = req.params.id;
 	var inforBook = await Book.findById({_id:id});
+	// console.log(inforBook.author);
 	res.render('book/edit-book',{inforBook:inforBook});
 }
+
+// module.exports.postEditBook = async (req,res)=>{
+// 	var id = req.params.id;
+// 	var inforBook = await Book.findById({_id:id});
+// 	var name = req.body.name;
+// 	var author = req.body.author;
+// 	var product = req.body.product;
+// 	var translator = req.body.translator;
+// 	var page = req.body.page;
+// 	var year = req.body.year;
+// 	var bookCase = req.body.bookCase;
+// 	var floor = req.body.floor;
+
+// 	// console.log(typeof name);
+// 	// console.log(typeof inforBook.name);
+
+// 	// if(name !== inforBook.name){
+// 	// 	var updated = await Book.findOneAndUpdate({_id:id},{$push: {'name':name}});
+// 	// 	return updated;
+// 	// }
+
+// 	await Book.update({_id:id},
+// 		{	'name':name,
+// 			'author':author,
+// 			'product':product,
+// 			'translator':translator,
+// 			'page':page,
+// 			'year':year,
+// 			'bookCase':bookCase,
+// 			'floor':floor,
+// 		}
+// 	);
+
+// 	res.redirect('/book');
+// }
