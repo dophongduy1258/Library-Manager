@@ -4,7 +4,12 @@ block content
 	h1 Edit book
 	span &nbsp;
 
-	form(action="/book/edit/:id",method="post")
+	//- each books in inforbook
+	form(method="post")
+		.input-group.mb-3
+					.input-group-prepend
+						label.input-group-text ID
+						input(type="text",name="id",value= inforBook._id,readonly)
 		.form-row
 			.form-group.col-md-6
 				label(for='name') Name

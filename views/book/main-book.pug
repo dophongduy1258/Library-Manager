@@ -50,4 +50,5 @@ block content
 						td
 							a.btn.btn-secondary(href='/book/edit/'+book._id, role='button') Edit
 							form(action="/book",method="post")
-								button.btn.btn-danger.mt-2(value= book._id,name="idBtn", role='button') Del
+								//- button.btn.btn-secondary(role="button",value= book._id, name="btnEdit") Edit
+								button.btn.btn-danger.mt-2(value= book._id,name="btnDel", role='button') Del
