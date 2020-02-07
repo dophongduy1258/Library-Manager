@@ -45,3 +45,6 @@ block content
 						td= employee.salary
 						td
 							a.btn.btn-secondary(href='/employee/edit/'+employee._id, role='button') Edit
+							form(action="/employee",method="post")
+								//- button.btn.btn-secondary(role="button",value= employee._id, name="btnEdit") Edit
+								button.btn.btn-danger.mt-2(value= employee._id,name="btnDel", role='button') Del
